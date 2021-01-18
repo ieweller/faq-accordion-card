@@ -18,7 +18,6 @@ body > .wrapper {
   background-color: #FFFFFF;
   border-radius: 1.5rem;
   position: relative;
-  height: 32rem;
   width: calc(100vw - 2.5rem);
   max-width: 57.5rem;
   margin: 0 auto;

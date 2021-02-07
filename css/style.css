@@ -1,24 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap");
+html,
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
 }
 body > .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: linear-gradient(0deg, #6462E7 0%, #AF69EA 100%);
+  background: linear-gradient(0deg, #6462E7 0%, #af67e9 100%);
+  padding: 1.3rem;
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
+  min-height: 100%;
+}
+@media (max-width: 58rem) {
+  body > .wrapper {
+    padding-top: 6rem;
+  }
 }
 
 .faq-card {
+  background: url(../img/illustration-woman-online-desktop.svg), url(../img/bg-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: 30.5rem;
+  background-position: -6rem;
   background-color: #FFFFFF;
   border-radius: 1.5rem;
-  position: relative;
-  width: calc(100vw - 2.5rem);
-  max-width: 57.5rem;
+  box-shadow: 0px 28px 32px 0px rgba(15, 16, 38, 0.25);
+  height: 32rem;
   margin: 0 auto;
+  max-width: 57.5rem;
+  padding: 0;
+  position: relative;
+}
+@media (max-width: 58rem) {
+  .faq-card {
+    background: none;
+    background-color: #FFFFFF;
+  }
+}
+.faq-card > .wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 4rem;
+}
+@media (max-width: 58rem) {
+  .faq-card > .wrapper {
+    justify-content: center;
+    padding: 4rem 0;
+    width: 100%;
+  }
+}
+.faq-card .float-img {
+  height: 7.25rem;
+  position: absolute;
+  top: 15.25rem;
+  left: -3.6rem;
+}
+@media (max-width: 58rem) {
+  .faq-card .float-img {
+    display: none;
+  }
+}
+.faq-card .faq {
+  width: 50%;
+}
+@media (max-width: 58rem) {
+  .faq-card .faq {
+    width: calc(100% - 4rem);
+  }
+}
+.faq-card .faq .wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.faq-card .faq .mobile-img {
+  display: none;
+}
+@media (max-width: 58rem) {
+  .faq-card .faq .mobile-img {
+    display: block;
+    background-image: url(../img/illustration-woman-online-mobile.svg), url(../img/bg-pattern-mobile.svg);
+    background-position: 0 0.5rem, 0 6rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 12.75rem;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -9rem;
+    margin-bottom: -1rem;
+  }
+}
+.faq-card .faq ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.faq-card .faq ul li {
+  border-bottom: 1px solid rgba(100, 98, 231, 0.2);
+}
+@media (hover: hover) {
+  .faq-card .faq ul li:hover h2 {
+    color: #f47c57;
+    font-weight: 600;
+    letter-spacing: 0.013rem;
+  }
+  .faq-card .faq ul li:hover h2,
+.faq-card .faq ul li:hover .arrow {
+    cursor: pointer;
+  }
+}
+.faq-card .faq ul li span .arrow {
+  display: block;
+  height: 0.5rem;
+  transition: transform 0.2s ease;
+  margin-right: -1rem;
+  float: right;
+}
+.faq-card .faq ul li span .arrow.up {
+  transform: scaleY(-1);
+}
+.faq-card .faq h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.041rem;
+  transition: all 400ms ease;
+}
+@media (max-width: 58rem) {
+  .faq-card .faq h1 {
+    text-align: center;
+  }
+}
+.faq-card .faq h2 {
+  font-size: 0.844rem;
+  font-weight: 400;
+  letter-spacing: 0.013rem;
+  margin: 1.2rem 0;
+  padding-right: 1rem;
+  width: 100%;
+  transition: all 150ms ease-in-out;
+}
+@media (max-width: 58rem) {
+  .faq-card .faq h2 {
+    font-size: 0.688rem;
+  }
+}
+.faq-card .faq h2.selected {
+  font-weight: 600;
+}
+.faq-card .faq p {
+  font-size: 0.719rem;
+  font-weight: 300;
+  letter-spacing: 0.015rem;
+  max-height: 0;
+  margin: 0;
+  transition: all 200ms ease-in-out;
+  overflow: hidden;
+}
+.faq-card .faq p.visible {
+  margin: 1rem 0;
+  max-height: 10rem;
 }

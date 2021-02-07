@@ -16,33 +16,34 @@
     <div class="faq-card">
       <div class="wrapper">
 
+        <img class="float-img" src="img/illustration-box-desktop.svg" alt="">
         <div class="faq">
           <div class="wrapper">
-
+            <div class="mobile-img"></div>
             <h1>FAQ</h1>
-            <ul>
-              <li>
-                <h2>How many team members can I invite?</h2>
+            <ul id="faq-list">
+              <li class="faq-list--item" onclick="expand('howMany')" id="howMany">
+                <h2>How many team members can I invite?<span class="faq-title"><img id="q1" class="arrow" src="img/icon-arrow-down.svg" alt="expand"></span></h2>
                 <p>You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
               </li>
 
-              <li>
-                <h2>What is the maximum file upload size?</h2>
+              <li class="faq-list--item" onclick="expand('maximum-size')" id="maximum-size">
+                <h2>What is the maximum file upload size?<span class="faq-title"><img id="q2" class="arrow" src="img/icon-arrow-down.svg" alt="expand"></span></h2>
                 <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
               </li>
 
-              <li>
-                <h2>How do I reset my password?</h2>
+              <li class="faq-list--item" onclick="expand('reset-pass')" id="reset-pass">
+                <h2>How do I reset my password?<span class="faq-title"><img id="q3" class="arrow" src="img/icon-arrow-down.svg" alt="expand"></span></h2>
                 <p>Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
               </li>
 
-              <li>
-                <h2>Can I cancel my subscription?</h2>
+              <li class="faq-list--item" onclick="expand('cancel-sub')" id="cancel-sub">
+                <h2>Can I cancel my subscription?<span class="faq-title"><img id="q4" class="arrow" src="img/icon-arrow-down.svg" alt="expand"></span></h2>
                 <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
               </li>
 
-              <li>
-                <h2>Do you provide additional support?</h2>
+              <li class="faq-list--item" onclick="expand('support')" id="support">
+                <h2>Do you provide additional support?<span class="faq-title"><img id="q5" class="arrow" src="img/icon-arrow-down.svg" alt="expand"></span></h2>
                 <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
               </li>
             </ul>
@@ -54,5 +55,50 @@
     </div>
 
   </div>
+
+  <script>
+
+  function expand(y) {
+
+    var question = document.getElementById(y).querySelector('h2');
+    var answer = document.getElementById(y).querySelector('p');
+    var arrow = document.getElementById(y).querySelector('img');
+
+    if (answer.classList.contains("visible")) {
+
+      hideAllAnswers();
+
+    } else {
+
+      var rect = document.getElementById(y).getBoundingClientRect();
+
+      hideAllAnswers();
+
+      document.getElementById(y).style.position = "relative";
+      document.getElementById(y).top = rect.top + "px";
+      question.classList.add("selected");
+      answer.classList.add("visible");
+      arrow.classList.add("up");
+
+    }
+  }
+
+  function hideAllAnswers() {
+    var i;
+    for (i = 0; i < document.getElementsByClassName("faq-list--item").length; i++) {
+
+      var thisItem = document.getElementsByClassName("faq-list--item")[i];
+
+      var questions = thisItem.querySelector('h2');
+      var answers = thisItem.querySelector('p');
+      var arrows = thisItem.querySelector('img');
+
+      questions.classList.remove("selected");
+      answers.classList.remove("visible");
+      arrows.classList.remove("up");
+    }
+  }
+
+  </script>
 </body>
 </html>
